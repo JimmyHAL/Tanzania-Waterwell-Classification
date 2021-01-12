@@ -57,10 +57,10 @@ For this project I took an iterative process of trying out six diffrent classifi
 
 I also made use of GridSearchCV from sklearn to search out the best values for the parameters. For the metrics comparison, I mainly paid attention to accuracy and F1-score. Below is a graph of model scores and table.
 
-![model_scores_table](images/model_scores_table.png)
+![model_scores_table](/images/model_scores_table.png)
 
 
-![model_scores](images/model_scores.png)
+![model_scores](/images/model_scores.png)
 
 The accuracy and F1 scores for Random Forest and XGBoost are extremely similar with a slight edge to XGBoost but I chose to go with Random Forest as my final model. The reason for this is because Random Forest had slightly better recall score for the 'funtional needs repair' category which I believe is more important than the precision score for our purpose. 
 
@@ -71,9 +71,9 @@ Ultimately I chose to priotize the accuracy and F1 score over the recall score s
 
 
 
-![confusion_matrix_randomforest](images/confusion_matrix_randomforest.png)
+![confusion_matrix_randomforest](/images/confusion_matrix_randomforest.png)
 
-![Classification_report_rf](images/Classification_report_rf.png)
+![Classification_report_rf](/images/Classification_report_rf.png)
 
 The accuracy score for the test data drop to 0.74 from 0.88 of the training data. The F1- score for the three categories is much lower for the testing dataset than the training dataset, especially for the 'functional needs repair' category. This is a category that all six classifier struggles with. The reason for this might be because of class imbalance problem. I used SMOTE to fixed the class imbalance but other methods might prove to be more effective.
 
@@ -90,7 +90,7 @@ The third most important feature is district_code. Apparently there is a correla
 
 The fourth and fifth ranked features are dummy variables for quantity of enough and insufficient.
 
-![features_importance](images/features_importance.png)
+![features_importance](/images/features_importance.png)
 
 
 ### Improvements To Make
