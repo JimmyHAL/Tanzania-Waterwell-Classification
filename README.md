@@ -64,9 +64,9 @@ I also made use of GridSearchCV from sklearn to search out the best values for t
 
 The accuracy and F1 scores for Random Forest and XGBoost are extremely similar with a slight edge to XGBoost but I chose to go with Random Forest as my final model. The reason for this is because Random Forest had slightly better recall score for the 'funtional needs repair' category which I believe is more important than the precision score for our purpose. 
 
-Another model that I also considered is SVM since it had a much better recall score for 'functional needs repair' category. Since the purpose of this project is help identify water points that need to be repair having a high recall score for the the 'non functional' and 'functional needs repair' categories allows us to do that. High recall score means we be able to identify more of the category but the downside is there will also be more false positive, which in our case means identifying functional water points as needing repair.
+Another model that I also considered is Logistic Regression since it had a much better recall score for 'functional needs repair' category. Since the purpose of this project is help identify water points that need to be repair having a high recall score for the the 'non functional' and 'functional needs repair' categories allows us to do that. High recall score means we be able to identify more of the category but the downside is there will also be more false positive, which in our case means identifying functional water points as needing repair.
 
-Ultimately I chose to priotize the accuracy and F1 score over the recall score since having a lot of false positive would waste manpower and budget.
+Ultimately I chose to priotize the accuracy and F1 score over the recall score since having a lot of false positive would waste manpower and budget for the Tanzanian goverment.
 
 
 
@@ -82,13 +82,16 @@ The accuracy score for the test data drop to 0.74 from 0.88 of the training data
 
 To interpret the model I took a look at the top 20 most important features for our model. A lot of the features seems to be correct judging intuitively.
 
-The gps_height feature, which shows the altitude of the waterpoint, is considered to be the most important features for our classifier. It seems that altitude has a relationship with the conditon of water points.
+The second most important feature is shown to be the altitude of the well. It seems that the average altitude of nonfunctional waterpoints are lower than the functional ones.  It could be possible that the reason for this is because rural area in Tanzania are located at lower altitudes. Therefore, its not the altitude that is directly affecting the condition of the water point.
 
-The quantity_dry feature is a dummy variable which show that the water source is dry. Which of course in turn means it is no longer functional.
+The quantity_dry, quantity_insufficient, and quantity_enough features are dummy variables are obvious why they are important. A dry well or one without insufficient water would obviously be classifed as non functional.
 
-The third most important feature is district_code. Apparently there is a correlation between certain districts and the conditions of the water points. This is a feature that perhaps warrant further investigation to find the reason why some districts have more non functional water points.
+Whether the waterpoint has a permit or not is also important in classifying the condition. 
 
-The fourth and fifth ranked features are dummy variables for quantity of enough and insufficient.
+Several waterpoint types and some extraction types also seems to be important in determining the condition. Perhaps the types that falls under some of these categories are not durable and should be avoided in the future.
+
+A few District and regions are also included in the top twenty features. This warrants a closer inspection to see which districts have more nonfunctional water points and the reason why this might be.
+
 
 ![features_importance](images/features_importance.PNG)
 
