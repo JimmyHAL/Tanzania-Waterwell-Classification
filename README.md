@@ -1,4 +1,4 @@
-# Project 3- Tanzania Water Point Classification
+# Tanzania Water Point Classification
 
 The purpose of this project is to take data provided by the Tanzania goverment about numerous water source points in the country and create a classifier that categorize new waterpoint data into three categories which are -
 
