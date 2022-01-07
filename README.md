@@ -29,8 +29,8 @@ The following are folders and files you can find in this repository and their di
 
 
  4. presentation.pdf  - pdf of a powerpoint presentation meant for non-technical audience
-
-
+ 
+ 
 ### Process
 For this project I followed OSEMN framework of-
 
@@ -45,6 +45,103 @@ For this project I followed OSEMN framework of-
 5. iNterpret the data
 
 
+## Obtain - The Dataset
+
+The dataset is from [drivendata.org](https://www.drivendata.org/competitions/7/pump-it-up-data-mining-the-water-table/). It is provided by Taarifa and the Tanzanian Ministry of Water. The raw data contains 40 features columns and 3 categories for the target.
+
+## Scrub
+
+For this project I made heavy use of the pandas library to manipulate and explore the dataset. I also made heavy use of sklearn libraries to model, evaluate and test the data.
+
+The first thing I did is use pandas profiling to explore the data. I found that there were several highly correlated columns and some columns missing a massive amount of data.
+
+I also made use of mosaicplot to look at several columns including the 'payment' column
+
+![mosiacplot](images/mosiac1.png)
+
+We can see that pay annually has the most functional waterpoints, while never pay and unknown has the least.
+
+After taking a look at the features descriptions, I saw that a few columns shared similars details
+
+- scheme_management - Who operates the waterpoint
+- scheme_name - Who operates the waterpoint
+
+- management - How the waterpoint is managed
+- management_group - How the waterpoint is managed
+
+- extraction_type - The kind of extraction the waterpoint uses
+- extraction_type_group - The kind of extraction the waterpoint uses
+- extraction_type_class - The kind of extraction the waterpoint uses
+
+- source - The source of the water
+- source_type - The source of the water
+- source_class - The source of the water
+- water_quality - The quality of the water
+
+- quality_group - The quality of the water
+- quantity - The quantity of water
+- quantity_group - The quantity of water.
+
+- payment - What the water costs
+- payment_type - What the water costs
+
+- waterpoint_type - The kind of waterpoint
+- waterpoint_type_group - The kind of waterpoint
+
+I went through each column's unique values and value count to choose the ones the seems the most appropriate for the project.
+
+After that, I took a look at the features containing geographical information:
+
+- longitude - GPS coordinate
+- latitude - GPS coordinate
+- basin - Geographic water basin
+- subvillage - Geographic location
+- region - Geographic location
+- region_code - Geographic location (coded)
+- district_code - Geographic location (coded)
+- lga - Geographic location
+- ward - Geographic location
+
+I got rid of the columns that seems redundant and the ones that had to many discrete unique values.
+
+### Dealing with Outliers, Missing Data and Filler Values
+
+I made use of boxplot from SeaBorn library to take a look at outliers
+
+![boxplot](images/boxplot.png)
+
+I used the IQR rule to cut off outliers.
+
+Using value count, I found that several columns contain filler values-
+
+- population - 0 ,1
+- construction_year - 0
+- management_group - unknown
+- payment_type - unknown
+- water_quality - unknown
+- quantity - unknown
+
+The population and construction_year columns are missing for about half the dataset. Using data imputation on these columns would drastically change the dataset, therefore they had to be dropped.
+
+### Creating Dummy Variables and Scaling 
+I created dummy variables for the categorical columns and scaled all the values using StandardScaler. 
+
+In my final dataset, I am left with 124 feature columns.
+
+###  Imbalanced Class
+
+The biggest problem for the dataset is that the amount of data point for each target is different. 51% make up functional, 42% make up the non functional and only 7% for the functional need repair category which is around 2000 observation.
+
+Original dataset
+![before](images/beforesmote.png)
+
+I made use of SMOTE(Synthetic Minority Oversampling Technique) from sklearn to create artifical datapoints.
+
+![after](images/aftersmote.png)
+
+
+
+
 ## Method
 For this project I took an iterative process of trying out six diffrent classifier models which were
 
@@ -55,7 +152,9 @@ For this project I took an iterative process of trying out six diffrent classifi
 5. eXtreme Gradient Boosting (XGBoost)
 6. Support Vector Machines (SVM)
 
-I also made use of GridSearchCV from sklearn to search out the best values for the parameters. For the metrics comparison, I mainly paid attention to accuracy and F1-score. Below is a graph of model scores and table.
+I also made use of GridSearchCV from sklearn to search out the best values for the parameters. 
+
+The performance metrics I will be using are Precision, Recall, Accuracy, and F1 Score. I will also be investigating the confusion matrix. I mainly paid attention to accuracy and F1-score. Below is a graph of model scores and table.
 
 ![model_scores_table](images/model_scores_table.PNG)
 
