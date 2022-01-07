@@ -133,6 +133,7 @@ In my final dataset, I am left with 124 feature columns.
 The biggest problem for the dataset is that the amount of data point for each target is different. 51% make up functional, 42% make up the non functional and only 7% for the functional need repair category which is around 2000 observation.
 
 Original dataset
+
 ![before](images/beforesmote.PNG)
 
 I made use of SMOTE(Synthetic Minority Oversampling Technique) from sklearn to create artifical datapoints.
