@@ -184,7 +184,7 @@ To interpret the model I took a look at the top 20 most important features for o
 
 The second most important feature is shown to be the altitude of the well. It seems that the average altitude of nonfunctional waterpoints are lower than the functional ones.  It could be possible that the reason for this is because rural area in Tanzania are located at lower altitudes. Therefore, its not the altitude that is directly affecting the condition of the water point.
 
-The quantity_dry, quantity_insufficient, and quantity_enough features are dummy variables are obvious why they are important. A dry well or one without insufficient water would obviously be classifed as non functional.
+The quantity_dry, quantity_insufficient, and quantity_enough features are dummy variables and are obvious why they are ranked highly. A dry well or one without insufficient water would obviously be classifed as non functional.
 
 Whether the waterpoint has a permit or not is also important in classifying the condition. 
 
@@ -202,6 +202,10 @@ A few District and regions are also included in the top twenty features. This wa
 
 - The model ability to predict functional needs repair is still lacking. I could try scrubbing the data in a diffrent way to make the model better.
 
-- Try out diffrent types of filling missing values to see if it improve the model.
-
 - Try using a diffrent method of fixing class imbalance to see if it improve our model performance for the 'functional needs repair' category.
+
+- Instead of getting rid of the population column completely, I could try filling it with population data searched out from the internet combined with either the subvillage or ward columns that contained too many unique values.
+
+- Make the assumption that the 0 value in constructed year means that the water source is very old and replaced it with 1950. After that, derived an age column for the water sources.
+
+
