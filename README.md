@@ -130,10 +130,13 @@ Using value count, I found that several columns contain filler values-
 
 The population and construction_year columns are missing for about half the dataset. Using data imputation on these columns would drastically change the dataset, therefore they had to be dropped.
 
-### Creating Dummy Variables and Scaling 
-I created dummy variables for the categorical columns and scaled all the values using StandardScaler. 
+### Creating Dummy Variables and Splitting the Dataset 
+I created dummy variables for the categorical columns and then split the data into testing and training sets. 
 
 In my final dataset, I am left with 124 feature columns.
+
+### Scaling the Dataset
+I made use of StandardScaler for sklean library to scale all the data including the dummy variables.
 
 ###  Imbalanced Class
 
