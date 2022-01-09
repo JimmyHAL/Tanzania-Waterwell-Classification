@@ -66,27 +66,34 @@ After taking a look at the features descriptions, I saw that a few columns share
 - scheme_management - Who operates the waterpoint
 - scheme_name - Who operates the waterpoint
 
+
 - management - How the waterpoint is managed
 - management_group - How the waterpoint is managed
+
 
 - extraction_type - The kind of extraction the waterpoint uses
 - extraction_type_group - The kind of extraction the waterpoint uses
 - extraction_type_class - The kind of extraction the waterpoint uses
+
 
 - source - The source of the water
 - source_type - The source of the water
 - source_class - The source of the water
 - water_quality - The quality of the water
 
+
 - quality_group - The quality of the water
 - quantity - The quantity of water
 - quantity_group - The quantity of water.
 
+
 - payment - What the water costs
 - payment_type - What the water costs
 
+
 - waterpoint_type - The kind of waterpoint
 - waterpoint_type_group - The kind of waterpoint
+
 
 I went through each column's unique values and value count to choose the ones the seems the most appropriate for the project.
 
