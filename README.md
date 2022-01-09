@@ -65,8 +65,7 @@ After taking a look at the features descriptions, I saw that a few columns share
 
 - scheme_management - Who operates the waterpoint
 - scheme_name - Who operates the waterpoint
-
-
+/n
 - management - How the waterpoint is managed
 - management_group - How the waterpoint is managed
 
