@@ -218,6 +218,6 @@ A few District and regions are also included in the top twenty features. This wa
 
 - Make the assumption that the 0 value in constructed year means that the water source is very old and replaced it with 1950. After that, derived an age column for the water sources.
 
-- If predictive performance is the goal, then deep learning could be used instead.
+- If predictive performance is the goal, then deep learning could be used to see if it performs better.
 
 
