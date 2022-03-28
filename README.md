@@ -172,11 +172,12 @@ The performance metrics I will be using are Precision, Recall, Accuracy, and F1 
 
 ![model_scores](images/model_scores.PNG)
 
-The accuracy and F1 scores for Random Forest and XGBoost are extremely similar with a slight edge to XGBoost but I chose to go with Random Forest as my final model. The reason for this is because Random Forest had slightly better recall score for the 'funtional needs repair' category which I believe is more important than the precision score for our purpose. 
+The accuracy and F1 scores for Random Forest and XGBoost are extremely similar with a slight edge to XGBoost but I chose to go with Random Forest as my final model. The reason for this is because Random Forest had a slightly better recall score for the 'functional needs repair' category which I believe is more important than the precision score for our purpose.
 
-Another model that I also considered is Logistic Regression since it had a much better recall score for 'functional needs repair' category. Since the purpose of this project is help identify water points that need to be repair having a high recall score for the the 'non functional' and 'functional needs repair' categories allows us to do that. High recall score means we be able to identify more of the category but the downside is there will also be more false positive, which in our case means identifying functional water points as needing repair.
+Another model that I also considered is Logistic Regression since it had a much better recall score for the 'functional needs repair' category. Since the purpose of this project is to help identify water points that need to be repaired having a high recall score for the 'nonfunctional' and 'functional needs repair' categories allows us to do that. A high recall score means we be able to identify more of the category but the downside is there will also be more false positives, which in our case means identifying functional water points as needing repair.
 
-Ultimately I chose to priotize the accuracy and F1 score over the recall score since having a lot of false positive would waste manpower and budget for the Tanzanian goverment.
+Ultimately I chose to prioritize the accuracy and F1 score over the recall score since having a lot of false-positive would waste manpower and budget for the Tanzanian government.
+
 
 
 
